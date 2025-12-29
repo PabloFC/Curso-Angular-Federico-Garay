@@ -1,10 +1,11 @@
+import { TarjetaComponent } from '../compartida/tarjeta/tarjeta.component';
 import { Usuario } from './usuario.model';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-usuario',
   standalone: true,
-  imports: [],
+  imports: [TarjetaComponent],
   templateUrl: './usuario.component.html',
   styleUrl: './usuario.component.css',
 })

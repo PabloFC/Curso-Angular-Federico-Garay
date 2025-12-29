@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Tarea } from './tarea.model';
+import { TarjetaComponent } from '../../compartida/tarjeta/tarjeta.component';
 
 @Component({
   selector: 'app-tarea',
   standalone: true,
-  imports: [],
+  imports: [TarjetaComponent],
   templateUrl: './tarea.component.html',
   styleUrl: './tarea.component.css',
 })
