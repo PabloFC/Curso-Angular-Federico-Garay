@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { TareaComponent } from './tarea/tarea.component';
 import { NuevaTareaComponent } from './nueva-tarea/nueva-tarea.component';
+import { NuevaTareaInfo } from './tarea/tarea.model';
 
 @Component({
   selector: 'app-tareas',
@@ -13,6 +14,7 @@ export class TareasComponent {
   @Input({ required: true }) idUsuario!: string;
   @Input({ required: true }) nombre!: string;
   estaAgregandoTareaNueva = false;
+  terminarTarea = false;
 
   tareas = [
     {
@@ -50,5 +52,20 @@ export class TareasComponent {
 
   alIniciarNuevaTarea() {
     this.estaAgregandoTareaNueva = true;
+  }
+  alCancelarTareaNueva() {
+    this.estaAgregandoTareaNueva = false;
+  }
+
+  alAgregarTarea(infoDeTarea: NuevaTareaInfo) {
+    this.tareas.push({
+      id: new Date().getTime().toString(),
+      idUsuario: this.idUsuario,
+      titulo: infoDeTarea.titulo,
+      resumen: infoDeTarea.resumen,
+      expira: infoDeTarea.fecha,
+    });
+
+    this.estaAgregandoTareaNueva = false;
   }
 }

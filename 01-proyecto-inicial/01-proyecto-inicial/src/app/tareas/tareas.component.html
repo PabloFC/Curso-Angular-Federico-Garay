@@ -1,5 +1,8 @@
 @if(estaAgregandoTareaNueva){
-<app-nueva-tarea />
+<app-nueva-tarea
+  (cancelar)="alCancelarTareaNueva()"
+  (agregar)="alAgregarTarea($event)"
+/>
 }
 
 <section id="tareas">
