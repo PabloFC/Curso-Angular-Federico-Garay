@@ -1,7 +1,7 @@
 <app-tarjeta>
   <article>
     <h2>{{ tarea.titulo }}</h2>
-    <time>{{ tarea.expira }}</time>
+    <time>{{ tarea.expira | date : "medium" }}</time>
     <p>{{ tarea.resumen }}</p>
     <p class="acciones">
       <button (click)="alCompletarTarea()">Terminada</button>
