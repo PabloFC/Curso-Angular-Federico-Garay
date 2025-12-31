@@ -8,4 +8,34 @@ import { IngresoUsuarioComponent } from './ingreso-usuario/ingreso-usuario.compo
   templateUrl: './app.component.html',
   imports: [EncabezadoComponent, IngresoUsuarioComponent],
 })
-export class AppComponent {}
+export class AppComponent {
+  alCalcularResultadosInversion(info: {
+    inversionInicial: number;
+    inversionAnual: number;
+    duracion: number;
+    rendimientoEsperado: number;
+  }) {
+    const { inversionInicial, inversionAnual, duracion, rendimientoEsperado } =
+      info;
+    const datosAnuales = [];
+    let valorInversion = inversionInicial;
+
+    for (let i = 0; i < duracion; i++) {
+      const anio = i + 1;
+      const interesGanadoEnAnio = valorInversion * (rendimientoEsperado / 100);
+      valorInversion += interesGanadoEnAnio + inversionAnual;
+      const interesTotal =
+        valorInversion - inversionAnual * anio - inversionInicial;
+      datosAnuales.push({
+        anio: anio,
+        interes: interesGanadoEnAnio,
+        valorFinalAnio: valorInversion,
+        inversionAnual: inversionAnual,
+        interesTotal: interesTotal,
+        montoTotalInvertido: inversionInicial + inversionAnual * anio,
+      });
+    }
+
+    console.log(datosAnuales);
+  }
+}
