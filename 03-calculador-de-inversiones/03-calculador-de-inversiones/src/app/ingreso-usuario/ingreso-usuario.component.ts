@@ -1,3 +1,4 @@
+import { IngresoInversion } from './../ingreso-inversion.model';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -9,12 +10,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './ingreso-usuario.component.css',
 })
 export class IngresoUsuarioComponent {
-  @Output() calcular = new EventEmitter<{
-    inversionInicial: number;
-    inversionAnual: number;
-    duracion: number;
-    rendimientoEsperado: number;
-  }>();
+  @Output() calcular = new EventEmitter<IngresoInversion>();
 
   inversionInicialIngresada = '0';
   inversionAnualIngresada = '0';
