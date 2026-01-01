@@ -1,9 +1,10 @@
+import { CurrencyPipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-resultados-inversion',
   standalone: true,
-  imports: [],
+  imports: [CurrencyPipe],
   templateUrl: './resultados-inversion.component.html',
   styleUrl: './resultados-inversion.component.css',
 })

@@ -1,4 +1,7 @@
-<p>Ingresa algunos valores</p>
+@if (!resultados) {
+
+<p class="centrar">Ingresa algunos valores</p>
+}@else {
 
 <table>
   <thead>
@@ -10,5 +13,17 @@
       <th>Capital invertido</th>
     </tr>
   </thead>
-  <tbody></tbody>
+  <tbody>
+    @for (resultado of resultados; track resultado.anio) {
+
+    <tr>
+      <td>{{ resultado.anio }}</td>
+      <td>{{ resultado.valorFinalAnio | currency : "EUR" }}</td>
+      <td>{{ resultado.inversionAnual | currency : "EUR" }}</td>
+      <td>{{ resultado.interesTotal | currency : "EUR" }}</td>
+      <td>{{ resultado.montoTotalInvertido | currency : "EUR" }}</td>
+    </tr>
+    }
+  </tbody>
 </table>
+}
