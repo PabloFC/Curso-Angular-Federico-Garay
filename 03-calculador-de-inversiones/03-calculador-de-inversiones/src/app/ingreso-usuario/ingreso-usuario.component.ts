@@ -24,5 +24,10 @@ export class IngresoUsuarioComponent {
       rendimientoEsperado: +this.rendimientoEsperadoIngresado,
       inversionAnual: +this.inversionAnualIngresada,
     });
+
+    // this.inversionAnualIngresada = '0';
+    // this.inversionAnualIngresada = '0';
+    // this.rendimientoEsperadoIngresado = '5';
+    // this.duracionIngresada = '10';
   }
 }
