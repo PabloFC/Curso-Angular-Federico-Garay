@@ -2,16 +2,25 @@
 
 <main>
   <div id="dashboard">
-    <div class="dashboard-elemento">
-      <app-estado-servidor />
-    </div>
+    <app-dashboard-elemento
+      [imagen]="{ src: 'estado.png ', alt: 'Un simbolo de estado ' }"
+      titulo="Estado del servidor"
+    >
+      <app-estado-servidor></app-estado-servidor>
+    </app-dashboard-elemento>
 
-    <div class="dashboard-elemento">
-      <app-trafico />
-    </div>
+    <app-dashboard-elemento
+      [imagen]="{ src: 'globo.png ', alt: 'Un globo ' }"
+      titulo="trafico"
+    >
+      <app-estado-servidor></app-estado-servidor>
+    </app-dashboard-elemento>
 
-    <div class="dashboard-elemento">
-      <app-registros />
-    </div>
+    <app-dashboard-elemento
+      [imagen]="{ src: 'lista.png ', alt: 'Una lista de elementos ' }"
+      titulo="Registro de soportes"
+    >
+      <app-estado-servidor></app-estado-servidor>
+    </app-dashboard-elemento>
   </div>
 </main>
