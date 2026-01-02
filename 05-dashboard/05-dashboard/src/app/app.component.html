@@ -1,81 +1,17 @@
-<header>
-  <div id="logo">
-    <img src="logo.png" alt="Logo del sitio, un servidor" />
-  </div>
-
-  <nav>
-    <ul>
-      <li>
-        <a href="/">Inicio</a>
-      </li>
-      <li>
-        <a href="/">Administración</a>
-      </li>
-      <li>
-        <button>
-          <span>
-            Salir
-          </span>
-          <span class="icono">
-            →
-          </span>
-        </button>
-      </li>
-    </ul>
-  </nav>
-</header>
+<app-encabezado />
 
 <main>
   <div id="dashboard">
     <div class="dashboard-elemento">
-      <article>
-        <header>
-          <img src="estado.png" alt="Un simbolo de señal" />
-          <h2>Estado del Servidor</h2>
-        </header>
-        <div>
-          @if (estadoActual === 'online') {
-            <p>Los servidores están conectados</p>
-            <p>Todos los sistemas están operativos.</p>
-          } @else if (estadoActual === 'offline') {
-            <p>Los servidores están desconectados</p>
-            <p>La funcionalidad debería restaurarse pronto.</p>
-          } @else {
-            <p>El estado del servidor es desconocido</p>
-            <p>Falló el reconocimiento del servidor.</p>
-          }
-        </div>
-      </article>
+      <app-estado-servidor />
     </div>
 
     <div class="dashboard-elemento">
-      <article>
-        <header>
-          <img src="globo.png" alt="Un globo" />
-          <h2>Tráfico</h2>
-        </header>
-        <div id="trafico">
-          <p>Últimos 7 Días</p>
-
-          <div id="grafico">
-            @for (puntoInformacion of informacionTraficoFalsa; track puntoInformacion.id) {
-              <div [style.height]="(puntoInformacion.valor / traficoMaximo) * 100 + '%'"></div>
-            }
-          </div>
-        </div>
-      </article>
+      <app-trafico />
     </div>
 
     <div class="dashboard-elemento">
-      <article>
-        <header>
-          <img src="lista.png" alt="Una lista de items" />
-          <h2>Registros de Soporte</h2>
-        </header>
-        <div id="estado">
-          <p>Todo...</p>
-        </div>
-      </article>
+      <app-registros />
     </div>
   </div>
 </main>
