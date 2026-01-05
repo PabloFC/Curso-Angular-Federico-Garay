@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-boton',
+  selector: 'button[appButton]',
   standalone: true,
   imports: [],
   templateUrl: './boton.component.html',
-  styleUrl: './boton.component.css'
+  styleUrl: './boton.component.css',
 })
-export class BotonComponent {
-
-}
+export class BotonComponent {}
