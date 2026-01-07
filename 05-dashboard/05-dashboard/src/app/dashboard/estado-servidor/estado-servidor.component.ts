@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-estado-servidor',
@@ -7,11 +7,12 @@ import { Component } from '@angular/core';
   templateUrl: './estado-servidor.component.html',
   styleUrl: './estado-servidor.component.css',
 })
-export class EstadoServidorComponent {
+export class EstadoServidorComponent implements OnInit, OnDestroy {
   estadoActual: 'online' | 'offline' | 'unknown' = 'unknown';
+  private intervalo?: NodeJS.Timeout;
 
   ngOnInit() {
-    setInterval(() => {
+    this.intervalo = setInterval(() => {
       const rnd = Math.random();
       if (rnd > 0.5) {
         this.estadoActual = 'online';
@@ -23,4 +24,12 @@ export class EstadoServidorComponent {
     }, 3000);
   }
   constructor() {}
+
+  ngAfterViewInit() {
+    console.log('After view Init');
+  }
+
+  ngOnDestroy() {
+    clearTimeout(this.intervalo);
+  }
 }
