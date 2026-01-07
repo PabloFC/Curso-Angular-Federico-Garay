@@ -9,7 +9,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 })
 export class EstadoServidorComponent implements OnInit, OnDestroy {
   estadoActual: 'online' | 'offline' | 'unknown' = 'unknown';
-  private intervalo?: NodeJS.Timeout;
+  private intervalo?: any;
 
   ngOnInit() {
     this.intervalo = setInterval(() => {
@@ -30,6 +30,6 @@ export class EstadoServidorComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    clearTimeout(this.intervalo);
+    clearInterval(this.intervalo);
   }
 }
