@@ -1,12 +1,10 @@
-<div id="trafico">
-  <p>Últimos 7 Días</p>
+<p>Últimos 7 Días</p>
 
-  <div id="grafico">
-    @for (puntoInformacion of informacionTraficoFalsa; track
-    puntoInformacion.id) {
-    <div
-      [style.height]="(puntoInformacion.valor / traficoMaximo) * 100 + '%'"
-    ></div>
-    }
-  </div>
+<div id="grafico">
+  @for (puntoInformacion of informacionTraficoFalsa; track puntoInformacion.id)
+  {
+  <div
+    [style.height]="(puntoInformacion.valor / traficoMaximo) * 100 + '%'"
+  ></div>
+  }
 </div>
