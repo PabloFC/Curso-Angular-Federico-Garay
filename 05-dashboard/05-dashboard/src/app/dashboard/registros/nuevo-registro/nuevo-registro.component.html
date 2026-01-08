@@ -4,11 +4,12 @@
 >
   <app-control etiqueta="Título">
     <!-- <label for="titulo">Titulo</label> -->
-    <input name="titulo" id="titulo" type="text" #tituloIngresado />
+    <input name="titulo" id="titulo" type="text" #tituloIngresado #input />
   </app-control>
   <app-control etiqueta="Pedido">
     <!-- <label for="pedido">Pedido</label> -->
-    <textarea name="pedido" id="pedido" row="3" #textoIngresado> </textarea>
+    <textarea name="pedido" id="pedido" row="3" #textoIngresado #input>
+    </textarea>
   </app-control>
   <p>
     <button appButton>
