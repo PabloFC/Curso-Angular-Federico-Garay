@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { BotonComponent } from '../../../compartida/boton/boton.component';
 import { ControlComponent } from '../../../compartida/control/control.component';
 import { FormsModule } from '@angular/forms';
@@ -11,8 +11,11 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './nuevo-registro.component.css',
 })
 export class NuevoRegistroComponent {
-  alEnviar(elementoTitulo: HTMLInputElement) {
-    const tituloIngresado = elementoTitulo.value;
-    console.log(tituloIngresado);
+  @ViewChild('miFormulario') miFormulario?: ElementRef<HTMLFormElement>;
+
+  alEnviar(titulo: string, textoRegistro: string) {
+    console.log(titulo);
+    console.log(textoRegistro);
+    this.miFormulario?.nativeElement.reset();
   }
 }
