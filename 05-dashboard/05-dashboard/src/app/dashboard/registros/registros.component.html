@@ -1,1 +1,13 @@
-<app-nuevo-registro></app-nuevo-registro>
+<div>
+  <ul>
+    @for (registro of registros; track registro.id) {
+    <li><app-registro [informacion]="registro" /></li>
+    } @empty {
+    <p>No hay registros disponibles</p>
+    }
+  </ul>
+</div>
+
+<div class="nuevo-registro">
+  <app-nuevo-registro (agregar)="alAgregar($event)" />
+</div>
