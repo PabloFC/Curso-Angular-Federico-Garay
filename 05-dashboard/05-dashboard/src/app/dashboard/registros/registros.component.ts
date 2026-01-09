@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NuevoRegistroComponent } from './nuevo-registro/nuevo-registro.component';
+import { Registro } from './registro.model';
 
 @Component({
   selector: 'app-registros',
@@ -8,4 +9,6 @@ import { NuevoRegistroComponent } from './nuevo-registro/nuevo-registro.componen
   templateUrl: './registros.component.html',
   styleUrl: './registros.component.css',
 })
-export class RegistrosComponent {}
+export class RegistrosComponent {
+  registros: Registro[] = [];
+}
