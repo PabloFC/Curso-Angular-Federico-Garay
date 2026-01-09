@@ -23,4 +23,13 @@ export class RegistrosComponent {
 
     this.registros.push(registro);
   }
+
+  alCerrarRegistro(id: string) {
+    this.registros = this.registros.map((registro) => {
+      if (registro.id === id) {
+        return { ...registro, estado: 'cerrado' };
+      }
+      return registro;
+    });
+  }
 }

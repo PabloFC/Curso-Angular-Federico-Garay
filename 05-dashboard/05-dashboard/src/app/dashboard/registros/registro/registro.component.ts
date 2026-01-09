@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output, signal } from '@angular/core';
 import { Registro } from '../registro.model';
 
 @Component({
@@ -10,4 +10,14 @@ import { Registro } from '../registro.model';
 })
 export class RegistroComponent {
   informacion = input.required<Registro>({});
+  detallesVisibles = signal(false);
+  cerrado = output();
+
+  alAlternarDetalles() {
+    this.detallesVisibles.set(!this.detallesVisibles());
+  }
+
+  AlMarcarComoCopletado() {
+    this.cerrado.emit();
+  }
 }

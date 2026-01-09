@@ -2,14 +2,14 @@
   <h3>
     <div
       [class]="{
-        'registro-abierto': true,
-        'registro-cerrado': false
+        'registro-abierto': informacion().estado === 'abierto',
+        'registro-cerrado': informacion().estado === 'cerrado'
       }"
     ></div>
-    <button>
+    <button (click)="alAlternarDetalles()">
       <span class="texto"> {{ informacion().titulo }}</span>
       <span>
-        @if (true) {
+        @if (detallesVisibles()) {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -43,10 +43,12 @@
     </button>
   </h3>
 
-  @if (true) {
+  @if (detallesVisibles()) {
   <p>{{ informacion().textoPedido }}</p>
 
   @if (informacion().estado ==='abierto') {
-  <p><button>Marcar como completado</button></p>
+  <p>
+    <button (click)="AlMarcarComoCopletado()">Marcar como completado</button>
+  </p>
   } }
 </article>

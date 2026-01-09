@@ -1,7 +1,12 @@
 <div>
   <ul>
     @for (registro of registros; track registro.id) {
-    <li><app-registro [informacion]="registro" /></li>
+    <li>
+      <app-registro
+        [informacion]="registro"
+        (cerrado)="alCerrarRegistro(registro.id)"
+      />
+    </li>
     } @empty {
     <p>No hay registros disponibles</p>
     }
