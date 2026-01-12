@@ -1,0 +1,16 @@
+<h2>Identifícate para acceder a todos los recursos</h2>
+<form (ngSubmit)="alEnviar()">
+  <p>
+    <label>E-Mail</label>
+    <input type="email" name="email" [(ngModel)]="email" />
+  </p>
+
+  <p>
+    <label>Clave</label>
+    <input type="clave" name="clave" [(ngModel)]="clave" />
+  </p>
+
+  <p>
+    <button>Ingresar</button>
+  </p>
+</form>
