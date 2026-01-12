@@ -4,4 +4,11 @@
   <hr />
 
   <app-autenticacion />
+
+  @if(esAdmin()) {
+
+  <p>Solo los admin veran esto</p>
+  }
+
+  <!-- <p *ngIf="esAdmin()">Solo los admin veran esto</p> -->
 </main>
