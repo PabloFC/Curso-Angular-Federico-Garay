@@ -1,4 +1,4 @@
-import { Directive } from '@angular/core';
+import { Directive, ElementRef, inject, input } from '@angular/core';
 
 @Directive({
   selector: 'a[appEnlaceSeguro]',
@@ -8,16 +8,26 @@ import { Directive } from '@angular/core';
   },
 })
 export class EnlaceSeguroDirective {
+  parametroConsulta = input('miapp', {
+    alias: 'appEnlaceSeguro',
+  });
+
+  private referenciaElementoHost =
+    inject<ElementRef<HTMLAnchorElement>>(ElementRef);
   constructor() {
     console.log('directiva esta activa');
   }
 
-  alConfirmarSalirPagina(event: MouseEvent) {
+  alConfirmarSalirPagina(evento: MouseEvent) {
     const quiereSalir = window.confirm('sales de la aplicación?');
     if (quiereSalir == true) {
+      const direccion = this.referenciaElementoHost.nativeElement.href;
+      (evento.target as HTMLAnchorElement).href =
+        direccion + '?from=' + this.parametroConsulta();
+
       return;
     }
 
-    event.preventDefault();
+    evento.preventDefault();
   }
 }
