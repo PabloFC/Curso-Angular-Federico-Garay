@@ -11,5 +11,7 @@
 
   <!-- <p *ngIf="esAdmin()">Solo los admin veran esto</p> -->
 
-  <p appAutenticacion="admin">Solo los admin veran esto</p>
+  <ng-template appAutenticacion="admin">
+    <p>Solo los admin veran esto</p>
+  </ng-template>
 </main>
