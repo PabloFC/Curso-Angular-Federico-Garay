@@ -1,5 +1,5 @@
 <main>
-  <app-recursos-aprendizaje />
+  <app-recursos-aprendizaje appMonitor />
 
   <hr />
 
@@ -11,7 +11,17 @@
 
   <!-- <p *ngIf="esAdmin()">Solo los admin veran esto</p> -->
 
-  <ng-template appAutenticacion="admin">
+  <!-- <ng-template appAutenticacion="admin">
     <p>Solo los admin veran esto</p>
-  </ng-template>
+  </ng-template> -->
+
+  <p *appAutenticacion="'admin'" class="contenido-protegido admin">
+    Solo los admin veran esto
+  </p>
+  <p *appAutenticacion="'usuario'" class="autenticado">
+    Los usuarios veran esto
+  </p>
+  <p *appAutenticacion="'invitado'" class="no-autenticado">
+    Solo los invitados veran esto
+  </p>
 </main>

@@ -5,6 +5,7 @@ import { AutenticacionComponent } from './autenticacion/autenticacion.component'
 import { RecursosAprendizajeComponent } from './recursos-aprendizaje/recursos-aprendizaje.component';
 import { NgIf } from '@angular/common';
 import { AutenticacionDirective } from './autenticacion/autenticacion.directive';
+import { MonitorDirective } from './monitor.directive';
 
 @Component({
   selector: 'app-raiz',
@@ -16,6 +17,7 @@ import { AutenticacionDirective } from './autenticacion/autenticacion.directive'
     RecursosAprendizajeComponent,
     AutenticacionDirective,
     AutenticacionDirective,
+    MonitorDirective,
   ],
 })
 export class AppComponent {
