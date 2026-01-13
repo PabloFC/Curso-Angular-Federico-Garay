@@ -5,10 +5,11 @@
 
   <app-autenticacion />
 
-  @if(esAdmin()) {
+  <!-- @if(esAdmin()) {
 
-  <p>Solo los admin veran esto</p>
-  }
+  } -->
 
   <!-- <p *ngIf="esAdmin()">Solo los admin veran esto</p> -->
+
+  <p appAutenticacion="admin">Solo los admin veran esto</p>
 </main>
