@@ -1,11 +1,11 @@
-import { DatePipe } from '@angular/common';
+import { DatePipe, DecimalPipe } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-raiz',
   standalone: true,
   templateUrl: './app.component.html',
-  imports: [DatePipe],
+  imports: [DatePipe, DecimalPipe],
 })
 export class AppComponent {
   fechaActual = new Date();

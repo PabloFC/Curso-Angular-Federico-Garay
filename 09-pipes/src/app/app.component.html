@@ -4,13 +4,13 @@
       <img src="temp-icon.png" alt="Icono de termómetro" />
       <div>
         <h2>Temperaturas Actuales</h2>
-        <p>{{ fechaActual | date }}</p>
+        <p>{{ fechaActual | date : "medium" }}</p>
       </div>
     </header>
-    <p>Nueva York: {{ temperaturasActuales.nuevaYork }}</p>
-    <p>Berlín: {{ temperaturasActuales.berlin }}</p>
-    <p>París: {{ temperaturasActuales.paris }}</p>
-    <p>Chicago: {{ temperaturasActuales.chicago }}</p>
+    <p>Nueva York: {{ temperaturasActuales.nuevaYork | number : "1.1-2" }}</p>
+    <p>Berlín: {{ temperaturasActuales.berlin | number : "1.1-2" }}</p>
+    <p>París: {{ temperaturasActuales.paris | number : "1.1-2" }}</p>
+    <p>Chicago: {{ temperaturasActuales.chicago | number : "1.1-2" }}</p>
   </article>
 
   <article class="temperaturas">
