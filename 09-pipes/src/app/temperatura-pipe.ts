@@ -6,10 +6,13 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class TemperaturaPipe implements PipeTransform {
   transform(
-    value: string | number,
+    value: string | number | null,
     tipoEntrada: 'cel' | 'fah',
     tipoSalida?: 'cel' | 'fah'
   ) {
+    if (!value) {
+      return value;
+    }
     let val: number;
 
     if (typeof value === 'string') {
@@ -20,7 +23,8 @@ export class TemperaturaPipe implements PipeTransform {
 
     let temperaturaSalida: number;
     if (tipoEntrada === 'cel' && tipoSalida === 'fah') {
-      temperaturaSalida = val + 9 / 5 + 32;
+      // prettier-ignore
+      temperaturaSalida = (val * 9 / 5) + 32;
     } else if (tipoEntrada === 'fah' && tipoSalida === 'cel') {
       temperaturaSalida = (val - 32) * (5 / 9);
     } else {
@@ -33,6 +37,6 @@ export class TemperaturaPipe implements PipeTransform {
     } else {
       simbolo = tipoSalida === 'cel' ? 'ºC' : 'ºF';
     }
-    return `${temperaturaSalida}º F`;
+    return `${temperaturaSalida.toFixed(2)} ${simbolo}`;
   }
 }

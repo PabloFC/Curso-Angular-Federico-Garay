@@ -8,11 +8,12 @@
       </div>
     </header>
     <p>
-      Nueva York: {{ temperaturasActuales.nuevaYork | temp : "cel" : "fah" }}
+      Nueva York:
+      {{ temperaturasActuales.nuevaYork | temp : "cel" : "fah" }}
     </p>
-    <p>Berlín: {{ temperaturasActuales.berlin | number : "1.1-2" }}</p>
-    <p>París: {{ temperaturasActuales.paris | number : "1.1-2" }}</p>
-    <p>Chicago: {{ temperaturasActuales.chicago | number : "1.1-2" }}</p>
+    <p>Berlín: {{ temperaturasActuales.berlin | temp : "cel" }}</p>
+    <p>París: {{ temperaturasActuales.paris | temp : "fah" : "cel" }}</p>
+    <p>Chicago: {{ temperaturasActuales.chicago | temp : "fah" }}</p>
   </article>
 
   <article class="temperaturas">
@@ -24,8 +25,11 @@
       </div>
     </header>
     <ul>
-      @for (temperatura of temperaturasHistoricas; track temperatura) {
-      <li (click)="reiniciarTemperatura($index)">{{ temperatura }}</li>
+      @for (temperatura of temperaturasHistoricas | ordenar; track temperatura)
+      {
+      <li (click)="reiniciarTemperatura($index)">
+        {{ temperatura | temp : "cel" }}
+      </li>
       }
     </ul>
   </article>
