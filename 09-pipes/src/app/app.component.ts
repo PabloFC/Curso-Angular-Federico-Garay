@@ -24,5 +24,8 @@ export class AppComponent {
 
   reiniciarTemperatura(indice: number) {
     this.temperaturasHistoricas[indice] = 18;
+    // const temperaturasNuevas = [...this.temperaturasHistoricas];
+    // temperaturasNuevas[indice] = 18;
+    // this.temperaturasHistoricas = temperaturasNuevas;
   }
 }

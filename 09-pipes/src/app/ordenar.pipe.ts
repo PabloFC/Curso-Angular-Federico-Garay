@@ -3,6 +3,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({
   name: 'ordenar',
   standalone: true,
+  pure: false,
 })
 export class OrdenarPipe implements PipeTransform {
   transform(value: string[] | number[], direccion: 'asc' | 'desc' = 'asc') {
