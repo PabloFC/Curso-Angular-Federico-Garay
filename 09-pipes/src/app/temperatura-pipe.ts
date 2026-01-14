@@ -5,7 +5,11 @@ import { Pipe, PipeTransform } from '@angular/core';
   standalone: true,
 })
 export class TemperaturaPipe implements PipeTransform {
-  transform(value: string | number) {
+  transform(
+    value: string | number,
+    tipoEntrada: 'cel' | 'fah',
+    tipoSalida?: 'cel' | 'fah'
+  ) {
     let val: number;
 
     if (typeof value === 'string') {
@@ -14,7 +18,21 @@ export class TemperaturaPipe implements PipeTransform {
       val = value;
     }
 
-    const temperaturaSalida = val + 9 / 5 + 32;
+    let temperaturaSalida: number;
+    if (tipoEntrada === 'cel' && tipoSalida === 'fah') {
+      temperaturaSalida = val + 9 / 5 + 32;
+    } else if (tipoEntrada === 'fah' && tipoSalida === 'cel') {
+      temperaturaSalida = (val - 32) * (5 / 9);
+    } else {
+      temperaturaSalida = val;
+    }
+
+    let simbolo: 'ºF' | 'ºC';
+    if (!tipoSalida) {
+      simbolo = tipoEntrada === 'cel' ? 'ºC' : 'ºF';
+    } else {
+      simbolo = tipoSalida === 'cel' ? 'ºC' : 'ºF';
+    }
     return `${temperaturaSalida}º F`;
   }
 }
