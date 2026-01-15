@@ -11,9 +11,9 @@
 </header>
 
 <ul>
-  @for (tarea of tareas; track tarea) {
-    <li>
-      <app-item-tarea [tarea]="tarea" />
-    </li>
+  @for (tarea of tareas(); track tarea.id) {
+  <li>
+    <app-item-tarea [tarea]="tarea" />
+  </li>
   }
-</ul> 
+</ul>

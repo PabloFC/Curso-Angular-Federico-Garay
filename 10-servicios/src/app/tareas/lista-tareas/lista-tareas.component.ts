@@ -1,6 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 
 import { ItemTareaComponent } from './item-tarea/item-tarea.component';
+import { TareaService } from '../../tareas.service';
 
 @Component({
   selector: 'app-lista-tareas',
@@ -11,9 +12,11 @@ import { ItemTareaComponent } from './item-tarea/item-tarea.component';
 })
 export class ListaTareasComponent {
   filtroSeleccionado = signal<string>('todas');
-  tareas = [];
+
+  private tareasService = inject(TareaService);
+  tareas = this.tareasService.todasLasTareas;
 
   onCambiarFiltroTareas(filtro: string) {
     this.filtroSeleccionado.set(filtro);
   }
-} 
+}

@@ -5,7 +5,8 @@ import { Tarea } from './tareas/tarea.model';
   providedIn: 'root',
 })
 export class TareaService {
-  tareas = signal<Tarea[]>([]);
+  private tareas = signal<Tarea[]>([]);
+  todasLasTareas = this.tareas.asReadonly();
 
   agregarTarea(datosDeTarea: { titulo: string; descripcion: string }) {
     const nuevaTarea: Tarea = {
