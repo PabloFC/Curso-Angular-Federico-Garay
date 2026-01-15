@@ -1,0 +1,13 @@
+<form (ngSubmit)="onAgregarTarea(titulo.value, descripcion.value)" #formulario>
+  <p>
+    <label for="titulo">Título</label>
+    <input type="text" id="titulo" name="titulo" #titulo />
+  </p>
+  <p>
+    <label for="descripcion">Descripción</label>
+    <textarea id="descripcion" name="descripcion" #descripcion></textarea>
+  </p>
+  <p id="acciones">
+    <button>Agregar Tarea</button>
+  </p>
+</form> 

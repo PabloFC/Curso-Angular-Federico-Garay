@@ -1,0 +1,27 @@
+<article
+  [class]="{
+    'estado-abierta': tarea().estado === 'ABIERTA',
+    'estado-en-progreso': tarea().estado === 'EN_PROGRESO',
+    'estado-completada': tarea().estado === 'COMPLETADA'
+  }"
+>
+  <header>
+    <h3>{{ tarea().titulo }}</h3>
+    <p>{{ estadoTarea() }}</p>
+  </header>
+  <p>{{ tarea().descripcion }}</p>
+  <form (ngSubmit)="onCambiarEstadoTarea(tarea().id, estado.value)">
+    <select #estado>
+      <option value="abierta" [selected]="tarea().estado === 'ABIERTA'">Abierta</option>
+      <option value="en-progreso" [selected]="tarea().estado === 'EN_PROGRESO'">
+        En Progreso
+      </option>
+      <option value="completada" [selected]="tarea().estado === 'COMPLETADA'">
+        Completada
+      </option>
+    </select>
+    <p>
+      <button>Cambiar Estado</button>
+    </p>
+  </form>
+</article> 
