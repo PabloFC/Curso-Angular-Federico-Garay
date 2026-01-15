@@ -1,7 +1,8 @@
-import { Component, computed, input } from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { Tarea, EstadoTarea } from '../../tarea.model';
+import { TareaService } from '../../../tareas.service';
 
 @Component({
   selector: 'app-item-tarea',
@@ -11,6 +12,7 @@ import { Tarea, EstadoTarea } from '../../tarea.model';
   styleUrl: './item-tarea.component.css',
 })
 export class ItemTareaComponent {
+  private tareaService = inject(TareaService);
   tarea = input.required<Tarea>();
   estadoTarea = computed(() => {
     switch (this.tarea().estado) {
@@ -41,5 +43,7 @@ export class ItemTareaComponent {
       default:
         break;
     }
+
+    this.tareaService.actualizarEstadoTarea(idTarea, nuevoEstado);
   }
-} 
+}

@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { Tarea } from './tareas/tarea.model';
+import { EstadoTarea, Tarea } from './tareas/tarea.model';
 
 @Injectable({
   providedIn: 'root',
@@ -15,5 +15,13 @@ export class TareaService {
       estado: 'ABIERTA',
     };
     this.tareas.update((tareasViejas) => [...tareasViejas, nuevaTarea]);
+  }
+
+  actualizarEstadoTarea(tareaId: string, nuevoEstado: EstadoTarea) {
+    this.tareas.update((tareasViejas) =>
+      tareasViejas.map((tarea) =>
+        tarea.id === tareaId ? { ...tarea, estado: nuevoEstado } : tarea
+      )
+    );
   }
 }
