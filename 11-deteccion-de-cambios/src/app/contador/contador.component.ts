@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, NgZone, OnInit, signal } from '@angular/core';
 
 import { MensajeInfoComponent } from '../mensaje-info/mensaje-info.component';
 
@@ -9,7 +9,8 @@ import { MensajeInfoComponent } from '../mensaje-info/mensaje-info.component';
   styleUrl: './contador.component.css',
   imports: [MensajeInfoComponent],
 })
-export class ContadorComponent {
+export class ContadorComponent implements OnInit {
+  private zone = inject(NgZone);
   contador = signal(0);
 
   get salidaDepuracion() {
@@ -17,6 +18,14 @@ export class ContadorComponent {
     return 'Salida de Depuración del Componente Contador';
   }
 
+  ngOnInit() {
+    setTimeout(() => {
+      this.contador.set(0);
+    }, 4000);
+  }
+  // this.zone.runOutsideAngular(()=>{
+
+  // })
   alDecrementar() {
     this.contador.update((contadorAnterior) => contadorAnterior - 1);
   }
@@ -24,4 +33,4 @@ export class ContadorComponent {
   alIncrementar() {
     this.contador.update((contadorAnterior) => contadorAnterior + 1);
   }
-} 
+}
