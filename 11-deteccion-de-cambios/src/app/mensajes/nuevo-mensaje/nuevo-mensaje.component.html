@@ -1,0 +1,11 @@
+<form (ngSubmit)="alEnviar()">
+  <p>
+    <label for="mensaje">Tu Mensaje</label>
+    <textarea id="menaje" name="mensaje" [(ngModel)]="textoIngresado"></textarea>
+  </p>
+  <p class="actions">
+    <button>Enviar</button>
+  </p>
+</form>
+
+<p class="debug-output">{{ salidaDepuracion }}</p>
