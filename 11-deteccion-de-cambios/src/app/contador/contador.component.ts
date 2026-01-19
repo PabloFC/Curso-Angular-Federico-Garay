@@ -1,4 +1,11 @@
-import { Component, inject, NgZone, OnInit, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  NgZone,
+  OnInit,
+  signal,
+} from '@angular/core';
 
 import { MensajeInfoComponent } from '../mensaje-info/mensaje-info.component';
 
@@ -8,6 +15,7 @@ import { MensajeInfoComponent } from '../mensaje-info/mensaje-info.component';
   templateUrl: './contador.component.html',
   styleUrl: './contador.component.css',
   imports: [MensajeInfoComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContadorComponent implements OnInit {
   private zone = inject(NgZone);
