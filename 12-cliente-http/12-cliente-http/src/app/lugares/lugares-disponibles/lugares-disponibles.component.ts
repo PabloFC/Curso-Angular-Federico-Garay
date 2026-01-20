@@ -1,8 +1,9 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 
 import { Lugar } from '../lugar.model';
 import { LugaresComponent } from '../lugares.component';
 import { ContenedorLugaresComponent } from '../contenedor-lugares/contenedor-lugares.component';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-lugares-disponibles',
@@ -13,4 +14,6 @@ import { ContenedorLugaresComponent } from '../contenedor-lugares/contenedor-lug
 })
 export class LugaresDisponiblesComponent {
   lugares = signal<Lugar[] | undefined>(undefined);
+
+  private httpClient = inject(HttpClient);
 }
