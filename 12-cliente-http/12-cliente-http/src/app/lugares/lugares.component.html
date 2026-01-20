@@ -1,0 +1,13 @@
+<ul>
+  @for (lugar of lugares(); track lugar.id) {
+    <li class="elemento-lugar">
+      <button (click)="alSeleccionarLugar(lugar)">
+        <img
+          [src]="'http://localhost:3000/' + lugar.image.src"
+          [alt]="lugar.image.alt"
+        />
+        <h3>{{ lugar.title }}</h3>
+      </button>
+    </li>
+  }
+</ul>

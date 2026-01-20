@@ -1,0 +1,182 @@
+[
+  {
+    "id": "p1",
+    "title": "Cascada del Bosque",
+    "image": {
+      "src": "forest-waterfall.jpg",
+      "alt": "Un tranquilo bosque con una cascada entre la vegetación."
+    },
+    "lat": 44.5588,
+    "lon": -80.344
+  },
+  {
+    "id": "p2",
+    "title": "Dunas del Desierto del Sahara",
+    "image": {
+      "src": "desert-dunes.jpg",
+      "alt": "Dunas doradas que se extienden hasta el horizonte en el Desierto del Sahara."
+    },
+    "lat": 25.0,
+    "lon": 0.0
+  },
+  {
+    "id": "p3",
+    "title": "Picos del Himalaya",
+    "image": {
+      "src": "majestic-mountains.jpg",
+      "alt": "El sol poniéndose detrás de los picos nevados de majestuosas montañas."
+    },
+    "lat": 27.9881,
+    "lon": 86.925
+  },
+  {
+    "id": "p4",
+    "title": "Playa del Caribe",
+    "image": {
+      "src": "caribbean-beach.jpg",
+      "alt": "Arena blanca prístina y aguas turquesas de una playa del Caribe."
+    },
+    "lat": 18.2208,
+    "lon": -66.5901
+  },
+  {
+    "id": "p5",
+    "title": "Ruinas Griegas Antiguas",
+    "image": {
+      "src": "ruins.jpg",
+      "alt": "Ruinas históricas que se alzan contra el fondo del cielo griego."
+    },
+    "lat": 37.9715,
+    "lon": 23.7257
+  },
+  {
+    "id": "p6",
+    "title": "Copa del Bosque Lluvioso del Amazonas",
+    "image": {
+      "src": "rainforest.jpg",
+      "alt": "Lujosa copa de un bosque lluvioso, rebosante de vida."
+    },
+    "lat": -3.4653,
+    "lon": -62.2159
+  },
+  {
+    "id": "p7",
+    "title": "Luces del Norte",
+    "image": {
+      "src": "northern-lights.jpg",
+      "alt": "Deslumbrante exhibición de las Luces del Norte en un cielo estrellado."
+    },
+    "lat": 64.9631,
+    "lon": -19.0208
+  },
+  {
+    "id": "p8",
+    "title": "Templo Japonés",
+    "image": {
+      "src": "japanese-temple.jpg",
+      "alt": "Antiguo templo japonés rodeado de follaje otoñal."
+    },
+    "lat": 34.9949,
+    "lon": 135.785
+  },
+  {
+    "id": "p9",
+    "title": "Gran Barrera de Coral",
+    "image": {
+      "src": "great-barrier-reef.jpg",
+      "alt": "Vibrantes formaciones de coral de la Gran Barrera de Coral bajo el agua."
+    },
+    "lat": -18.2871,
+    "lon": 147.6992
+  },
+  {
+    "id": "p10",
+    "title": "Calles Parisinas",
+    "image": {
+      "src": "parisian-streets.jpg",
+      "alt": "Encantadoras calles de París con edificios históricos y cafés."
+    },
+    "lat": 48.8566,
+    "lon": 2.3522
+  },
+  {
+    "id": "p11",
+    "title": "Gran Cañón",
+    "image": {
+      "src": "grand-canyon.jpg",
+      "alt": "Vista expansiva de los profundos desfiladeros y crestas del Gran Cañón."
+    },
+    "lat": 36.1069,
+    "lon": -112.1129
+  },
+  {
+    "id": "p12",
+    "title": "Canales Venecianos",
+    "image": {
+      "src": "venetian-canals.jpg",
+      "alt": "Aguas relucientes de los canales venecianos mientras las góndolas se deslizan al atardecer."
+    },
+    "lat": 45.4408,
+    "lon": 12.3155
+  },
+  {
+    "id": "p13",
+    "title": "Taj Mahal",
+    "image": {
+      "src": "taj-mahal.jpg",
+      "alt": "El icónico Taj Mahal reflejándose en sus aguas circundantes durante el amanecer."
+    },
+    "lat": 27.1751,
+    "lon": 78.0421
+  },
+  {
+    "id": "p14",
+    "title": "Backwaters de Kerala",
+    "image": {
+      "src": "kerala-backwaters.jpg",
+      "alt": "Aguas tranquilas y exuberante vegetación de los backwaters de Kerala."
+    },
+    "lat": 9.4981,
+    "lon": 76.3388
+  },
+  {
+    "id": "p15",
+    "title": "Sabana Africana",
+    "image": {
+      "src": "african-savanna.jpg",
+      "alt": "Animales salvajes deambulando libremente en los vastos paisajes de la sabana africana."
+    },
+    "lat": -2.153,
+    "lon": 34.6857
+  },
+  {
+    "id": "p16",
+    "title": "Cataratas Victoria",
+    "image": {
+      "src": "victoria-falls.jpg",
+      "alt": "La poderosa cascada de las Cataratas Victoria, una maravilla natural entre Zambia y Zimbabue."
+    },
+    "lat": -17.9243,
+    "lon": 25.8572
+  },
+  {
+    "id": "p17",
+    "title": "Machu Picchu",
+    "image": {
+      "src": "machu-picchu.jpg",
+      "alt": "La histórica ciudadela inca de Machu Picchu iluminada por el sol de la mañana."
+    },
+    "lat": -13.1631,
+    "lon": -72.545
+  },
+  {
+    "id": "p18",
+    "title": "Río Amazonas",
+    "image": {
+      "src": "amazon-river.jpg",
+      "alt": "Navegando por las aguas del Río Amazonas, rodeado de densa selva tropical."
+    },
+    "lat": -3.4653,
+    "lon": -58.38
+  }
+]

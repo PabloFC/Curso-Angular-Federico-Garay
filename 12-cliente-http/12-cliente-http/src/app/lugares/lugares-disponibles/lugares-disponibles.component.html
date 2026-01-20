@@ -1,0 +1,7 @@
+<app-contenedor-lugares titulo="Lugares Disponibles">
+  @if (lugares()) {
+    <app-lugares [lugares]="lugares()!" />
+  } @else if (lugares()?.length === 0) {
+  <p class="texto-respaldo">Desafortunadamente no se encontraron lugares.</p>
+  }
+</app-contenedor-lugares>
