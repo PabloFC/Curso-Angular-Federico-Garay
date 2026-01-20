@@ -4,6 +4,7 @@ import { Lugar } from '../lugar.model';
 import { LugaresComponent } from '../lugares.component';
 import { ContenedorLugaresComponent } from '../contenedor-lugares/contenedor-lugares.component';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-lugares-disponibles',
@@ -14,15 +15,21 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LugaresDisponiblesComponent implements OnInit {
   lugares = signal<Lugar[] | undefined>(undefined);
+  estaRecibiendo = signal(false);
   private httpClient = inject(HttpClient);
   private destroyRef = inject(DestroyRef);
 
   ngOnInit() {
+    this.estaRecibiendo.set(true);
     const subscripcion = this.httpClient
       .get<{ lugares: Lugar[] }>('http://localhost:3000/lugares')
+      .pipe(map((datosrespuesta) => datosrespuesta.lugares))
       .subscribe({
-        next: (datosrespuesta) => {
-          console.log(datosrespuesta);
+        next: (lugares) => {
+          this.lugares.set(lugares);
+        },
+        complete: () => {
+          this.estaRecibiendo.set(false);
         },
       });
 
