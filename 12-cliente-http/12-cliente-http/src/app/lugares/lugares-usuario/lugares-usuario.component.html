@@ -1,3 +1,15 @@
 <app-contenedor-lugares titulo="Tus Lugares Favoritos">
-  <p>Provisorio...</p>
+  @if (estaRecibiendo() && !error()) {
+    <p class="texto-respaldo">Cargando lugares favoritos...</p>
+  }
+
+  @if (error()) {
+    <p class="texto-respaldo">{{ error() }}</p>
+  }
+
+  @if (lugares()) {
+    <app-lugares [lugares]="lugares()!" />
+  } @else if (lugares()?.length === 0) {
+    <p class="texto-respaldo">Desafortunadamente no se encontraron lugares.</p>
+  }
 </app-contenedor-lugares>
