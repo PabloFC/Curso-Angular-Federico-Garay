@@ -44,7 +44,9 @@ app.put("/lugares-usuario", async (req, res) => {
 
   const lugar = datosLugares.find((lugar) => lugar.id === idLugar);
 
-  const contenidoArchivoLugaresUsuario = await fs.readFile("./data/lugares-usuario.json");
+  const contenidoArchivoLugaresUsuario = await fs.readFile(
+    "./data/lugares-usuario.json",
+  );
   const datosLugaresUsuario = JSON.parse(contenidoArchivoLugaresUsuario);
 
   let lugaresUsuarioActualizados = datosLugaresUsuario;
@@ -55,7 +57,7 @@ app.put("/lugares-usuario", async (req, res) => {
 
   await fs.writeFile(
     "./data/lugares-usuario.json",
-    JSON.stringify(lugaresUsuarioActualizados)
+    JSON.stringify(lugaresUsuarioActualizados),
   );
 
   res.status(200).json({ lugaresUsuario: lugaresUsuarioActualizados });
@@ -64,10 +66,14 @@ app.put("/lugares-usuario", async (req, res) => {
 app.delete("/lugares-usuario/:id", async (req, res) => {
   const idLugar = req.params.id;
 
-  const contenidoArchivoLugaresUsuario = await fs.readFile("./data/lugares-usuario.json");
+  const contenidoArchivoLugaresUsuario = await fs.readFile(
+    "./data/lugares-usuario.json",
+  );
   const datosLugaresUsuario = JSON.parse(contenidoArchivoLugaresUsuario);
 
-  const indiceLugar = datosLugaresUsuario.findIndex((lugar) => lugar.id === idLugar);
+  const indiceLugar = datosLugaresUsuario.findIndex(
+    (lugar) => lugar.id === idLugar,
+  );
 
   let lugaresUsuarioActualizados = datosLugaresUsuario;
 
@@ -77,7 +83,7 @@ app.delete("/lugares-usuario/:id", async (req, res) => {
 
   await fs.writeFile(
     "./data/lugares-usuario.json",
-    JSON.stringify(lugaresUsuarioActualizados)
+    JSON.stringify(lugaresUsuarioActualizados),
   );
 
   res.status(200).json({ lugaresUsuario: lugaresUsuarioActualizados });
