@@ -1,4 +1,6 @@
-import { Injectable, signal } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable, signal } from '@angular/core';
+import { catchError, map, throwError } from 'rxjs';
 
 import { Lugar } from './lugar.model';
 
@@ -6,15 +8,44 @@ import { Lugar } from './lugar.model';
   providedIn: 'root',
 })
 export class ServicioLugares {
+  private httpClient = inject(HttpClient);
   private lugaresUsuario = signal<Lugar[]>([]);
 
   lugaresUsuarioCargados = this.lugaresUsuario.asReadonly();
 
-  cargarLugaresDisponibles() {}
+  private traerLugares(url: string, mensajeError: string) {
+    return this.httpClient.get<{ lugares: Lugar[] }>(url).pipe(
+      map((datosrespuesta) => datosrespuesta.lugares),
+      catchError((error) => {
+        console.log(error.message);
+        return throwError(() => new Error(mensajeError));
+      }),
+    );
+  }
 
-  cargarLugaresUsuario() {}
+  cargarLugaresDisponibles() {
+    return this.traerLugares(
+      'http://localhost:3000/lugares',
+      'Algo salio mal al obtener los lugares',
+    );
+  }
 
-  agregarLugarALugaresUsuario(lugar: Lugar) {}
+  cargarLugaresUsuario() {
+    return this.traerLugares(
+      'http://localhost:3000/lugares-usuario',
+      'Algo salio mal al obtener los lugares favoritos',
+    );
+  }
+
+  agregarLugarALugaresUsuario(lugarId: string) {
+    return this.httpClient
+      .put('http://localhost:3000/lugares-usuario', {
+        lugarId,
+      })
+      .subscribe({
+        next: (datosRespuesta) => console.log(datosRespuesta),
+      });
+  }
 
   eliminarLugarUsuario(lugar: Lugar) {}
 }

@@ -3,8 +3,7 @@ import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
 import { Lugar } from '../lugar.model';
 import { LugaresComponent } from '../lugares.component';
 import { ContenedorLugaresComponent } from '../contenedor-lugares/contenedor-lugares.component';
-import { HttpClient } from '@angular/common/http';
-import { catchError, map, throwError } from 'rxjs';
+import { ServicioLugares } from '../lugares.service';
 
 @Component({
   selector: 'app-lugares-disponibles',
@@ -17,23 +16,14 @@ export class LugaresDisponiblesComponent implements OnInit {
   lugares = signal<Lugar[] | undefined>(undefined);
   estaRecibiendo = signal(false);
   error = signal('');
-  private httpClient = inject(HttpClient);
+  // private httpClient = inject(HttpClient);
+  private servicioLugares = inject(ServicioLugares);
   private destroyRef = inject(DestroyRef);
 
   ngOnInit() {
     this.estaRecibiendo.set(true);
-    const subscripcion = this.httpClient
-      .get<{ lugares: Lugar[] }>('http://localhost:3000/lugares')
-      .pipe(
-        map((datosrespuesta) => datosrespuesta.lugares),
-        catchError((error) => {
-          console.log(error.message);
-          return throwError(
-            () =>
-              new Error('Algo salió mal al obtener los lugares disponibles'),
-          );
-        }),
-      )
+    const subscripcion = this.servicioLugares
+      .cargarLugaresDisponibles()
       .subscribe({
         next: (lugares) => {
           this.lugares.set(lugares);
@@ -51,12 +41,12 @@ export class LugaresDisponiblesComponent implements OnInit {
     });
   }
   alSeleccionarlugar(lugarSeleccionado: Lugar) {
-    this.httpClient
-      .put('http://localhost:3000/lugares-usuario', {
-        lugarId: lugarSeleccionado.id,
-      })
-      .subscribe({
-        next: (datosRespuesta) => console.log(datosRespuesta),
-      });
+    const subscripcion = this.servicioLugares.agregarLugarALugaresUsuario(
+      lugarSeleccionado.id,
+    );
+
+    this.destroyRef.onDestroy(() => {
+      subscripcion.unsubscribe();
+    });
   }
 }
