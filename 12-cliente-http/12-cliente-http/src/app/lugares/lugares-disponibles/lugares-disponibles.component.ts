@@ -50,4 +50,13 @@ export class LugaresDisponiblesComponent implements OnInit {
       subscripcion.unsubscribe();
     });
   }
+  alSeleccionarlugar(lugarSeleccionado: Lugar) {
+    this.httpClient
+      .put('http://localhost:3000/lugares-usuario', {
+        lugarId: lugarSeleccionado.id,
+      })
+      .subscribe({
+        next: (datosRespuesta) => console.log(datosRespuesta),
+      });
+  }
 }
