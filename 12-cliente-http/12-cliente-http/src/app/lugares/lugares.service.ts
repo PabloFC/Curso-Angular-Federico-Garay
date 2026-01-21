@@ -41,11 +41,23 @@ export class ServicioLugares {
     );
   }
 
-  agregarLugarALugaresUsuario(lugarId: string) {
+  agregarLugarALugaresUsuario(lugar: Lugar) {
+    const lugaresAntiguos = this.lugaresUsuario();
+    if (!lugaresAntiguos.some((l) => l.id === lugar.id)) {
+      this.lugaresUsuario.set([...lugaresAntiguos, lugar]);
+    }
     return this.httpClient
       .put('http://localhost:3000/lugares-usuario', {
-        lugarId,
+        lugarId: lugar.id,
       })
+      .pipe(
+        catchError((error) => {
+          this.lugaresUsuario.set(lugaresAntiguos);
+          return throwError(
+            () => new Error('No se pudo guardar el lugar seleccionado'),
+          );
+        }),
+      )
       .subscribe({
         next: (datosRespuesta) => console.log(datosRespuesta),
       });

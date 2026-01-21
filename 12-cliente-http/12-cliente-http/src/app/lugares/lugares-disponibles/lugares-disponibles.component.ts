@@ -41,9 +41,8 @@ export class LugaresDisponiblesComponent implements OnInit {
     });
   }
   alSeleccionarlugar(lugarSeleccionado: Lugar) {
-    const subscripcion = this.servicioLugares.agregarLugarALugaresUsuario(
-      lugarSeleccionado.id,
-    );
+    const subscripcion =
+      this.servicioLugares.agregarLugarALugaresUsuario(lugarSeleccionado);
 
     this.destroyRef.onDestroy(() => {
       subscripcion.unsubscribe();
