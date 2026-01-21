@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
-import { catchError, map, throwError } from 'rxjs';
+import { catchError, map, tap, throwError } from 'rxjs';
 
 import { Lugar } from './lugar.model';
 
@@ -34,6 +34,10 @@ export class ServicioLugares {
     return this.traerLugares(
       'http://localhost:3000/lugares-usuario',
       'Algo salio mal al obtener los lugares favoritos',
+    ).pipe(
+      tap({
+        next: (lugaresUsuario) => this.lugaresUsuario.set(lugaresUsuario),
+      }),
     );
   }
 

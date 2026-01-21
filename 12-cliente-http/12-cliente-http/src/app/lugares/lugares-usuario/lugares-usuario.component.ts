@@ -13,18 +13,15 @@ import { LugaresComponent } from '../lugares.component';
   imports: [ContenedorLugaresComponent, LugaresComponent],
 })
 export class LugaresUsuarioComponent implements OnInit {
-  lugares = signal<Lugar[] | undefined>(undefined);
   estaRecibiendo = signal(false);
   error = signal('');
   private servicioLugares = inject(ServicioLugares);
+  lugares = this.servicioLugares.lugaresUsuarioCargados;
   private destroyRef = inject(DestroyRef);
 
   ngOnInit() {
     this.estaRecibiendo.set(true);
     const subscripcion = this.servicioLugares.cargarLugaresUsuario().subscribe({
-      next: (lugares) => {
-        this.lugares.set(lugares);
-      },
       complete: () => {
         this.estaRecibiendo.set(false);
       },
