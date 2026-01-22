@@ -1,8 +1,13 @@
+@if (error()) {
+  <app-error-modal titulo="Ocurrio un error" [mensaje]="error()" />
+}
+
 <header>
   <img src="logo.png" alt="Globo estilizado" />
   <h1>SelectorDeLugares</h1>
   <p>
-    Crea tu colección personal de lugares que te gustaría visitar o que has visitado.
+    Crea tu colección personal de lugares que te gustaría visitar o que has
+    visitado.
   </p>
 </header>
 

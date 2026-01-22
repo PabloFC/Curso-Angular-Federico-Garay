@@ -3,6 +3,7 @@ import { inject, Injectable, signal } from '@angular/core';
 import { catchError, map, tap, throwError } from 'rxjs';
 
 import { Lugar } from './lugar.model';
+import { ErrorService } from '../compartido/error.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +11,7 @@ import { Lugar } from './lugar.model';
 export class ServicioLugares {
   private httpClient = inject(HttpClient);
   private lugaresUsuario = signal<Lugar[]>([]);
+  private errorService = inject(ErrorService);
 
   lugaresUsuarioCargados = this.lugaresUsuario.asReadonly();
 
@@ -53,6 +55,9 @@ export class ServicioLugares {
       .pipe(
         catchError((error) => {
           this.lugaresUsuario.set(lugaresAntiguos);
+          this.errorService.mostrarerror(
+            'No se pudo guardar el lugar seleccionado',
+          );
           return throwError(
             () => new Error('No se pudo guardar el lugar seleccionado'),
           );
