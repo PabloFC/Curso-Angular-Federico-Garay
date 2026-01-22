@@ -1,0 +1,147 @@
+<form>
+  <h2>¡Bienvenido a bordo!</h2>
+  <p>Solo necesitamos algunos datos tuyos para comenzar 🚀</p>
+
+  <div class="control">
+    <label for="email">Correo Electrónico</label>
+    <input id="email" type="email" name="email" />
+  </div>
+
+  <div class="control-fila">
+    <div class="control">
+      <label for="contrasena">Contraseña</label>
+      <input
+        id="contrasena"
+        type="password"
+        name="contrasena"
+      />
+    </div>
+
+    <div class="control">
+      <label for="confirmar-contrasena">Confirmar Contraseña</label>
+      <input
+        id="confirmar-contrasena"
+        type="password"
+        name="confirmar-contrasena"
+      />
+    </div>
+  </div>
+
+  <hr />
+
+  <div>
+    <div class="control-fila">
+      <div class="control">
+        <label for="nombre">Nombre</label>
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+        />
+      </div>
+
+      <div class="control">
+        <label for="apellido">Apellido</label>
+        <input
+          type="text"
+          id="apellido"
+          name="apellido"
+        />
+      </div>
+    </div>
+
+    <fieldset>
+      <legend>Tu Dirección</legend>
+
+      <div class="control-fila">
+        <div class="control">
+          <label for="calle">Calle</label>
+          <input type="text" id="calle" name="calle" />
+        </div>
+
+        <div class="control">
+          <label for="numero">Número</label>
+          <input type="text" id="numero" name="numero" />
+        </div>
+      </div>
+
+      <div class="control-fila">
+        <div class="control">
+          <label for="codigo-postal">Código Postal</label>
+          <input type="text" id="codigo-postal" name="codigo-postal" />
+        </div>
+
+        <div class="control">
+          <label for="ciudad">Ciudad</label>
+          <input type="text" id="ciudad" name="ciudad" />
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <hr />
+
+  <div class="control-fila">
+    <div class="control">
+      <label for="rol">¿Qué describe mejor tu rol?</label>
+      <select id="rol" name="rol">
+        <option value="estudiante">Estudiante</option>
+        <option value="profesor">Profesor</option>
+        <option value="empleado">Empleado</option>
+        <option value="fundador">Fundador</option>
+        <option value="otro">Otro</option>
+      </select>
+    </div>
+  </div>
+
+  <fieldset>
+    <legend>¿Cómo nos encontraste?</legend>
+    <div class="control">
+      <input
+        type="checkbox"
+        id="google"
+        name="adquirido-por"
+        value="google"
+      />
+      <label for="google">Google</label>
+    </div>
+
+    <div class="control">
+      <input
+        type="checkbox"
+        id="amigo"
+        name="adquirido-por"
+        value="amigo"
+      />
+      <label for="amigo">Referido por un amigo</label>
+    </div>
+
+    <div class="control">
+      <input
+        type="checkbox"
+        id="otro"
+        name="adquirido-por"
+        value="otro"
+      />
+      <label for="otro">Otro</label>
+    </div>
+  </fieldset>
+
+  <div class="control-fila">
+    <div class="control">
+      <label for="terminos-y-condiciones">
+        <input
+          type="checkbox"
+          id="terminos-y-condiciones"
+          name="terminos-y-condiciones"
+        />
+        Acepto los términos y condiciones
+      </label>
+    </div>
+  </div>
+
+  <p class="form-acciones">
+    <button type="reset" class="button button-plano">Restablecer</button>
+    <button type="submit" class="button">Registrarse</button>
+  </p>
+</form>
