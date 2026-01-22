@@ -4,14 +4,37 @@
   <div class="control-fila">
     <div class="control sin-margen">
       <label for="email">Correo Electrónico</label>
-      <input id="email" type="email" name="email" ngModel />
+      <input
+        id="email"
+        type="email"
+        name="email"
+        required
+        email
+        #email="ngModel"
+        ngModel
+      />
     </div>
 
     <div class="control sin-margen">
       <label for="contrasena">Contraseña</label>
-      <input id="contrasena" type="password" name="contrasena" ngModel />
+      <input
+        id="contrasena"
+        type="password"
+        name="contrasena"
+        required
+        minlength="6"
+        #contrasena="ngModel"
+        ngModel
+      />
     </div>
 
     <button class="button">Iniciar Sesión</button>
   </div>
+  @if (email.touched && email.dirty && email.invalid) {
+    <p class="control-error">Email no valido</p>
+  }
+
+  @if (contrasena.touched && contrasena.dirty && contrasena.invalid) {
+    <p class="control-error">Contraseña no valido</p>
+  }
 </form>

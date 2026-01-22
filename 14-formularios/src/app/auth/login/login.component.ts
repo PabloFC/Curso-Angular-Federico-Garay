@@ -10,7 +10,11 @@ import { FormsModule, NgForm } from '@angular/forms';
 })
 export class LoginComponent {
   alEnviar(datosForm: NgForm) {
+    if (datosForm.form.invalid) {
+      return;
+    }
     const emailIngresado = datosForm.form.value.email;
     const contrasenaIngresado = datosForm.form.value.contrasena;
+    console.log(datosForm);
   }
 }
