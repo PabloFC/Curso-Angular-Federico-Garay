@@ -68,5 +68,23 @@ export class ServicioLugares {
       });
   }
 
-  eliminarLugarUsuario(lugar: Lugar) {}
+  eliminarLugarUsuario(lugar: Lugar) {
+    const lugaresAntiguos = this.lugaresUsuario();
+    if (lugaresAntiguos.some((l) => l.id === lugar.id)) {
+      this.lugaresUsuario.set(lugaresAntiguos.filter((l) => l.id !== lugar.id));
+    }
+    return this.httpClient
+      .delete('http://localhost:3000/lugares-usuario/' + lugar.id)
+      .pipe(
+        catchError((error) => {
+          this.lugaresUsuario.set(lugaresAntiguos);
+          this.errorService.mostrarerror(
+            'No se pudo eliminar el lugar seleccionado',
+          );
+          return throwError(
+            () => new Error('No se pudo eliminar el lugar seleccionado'),
+          );
+        }),
+      );
+  }
 }

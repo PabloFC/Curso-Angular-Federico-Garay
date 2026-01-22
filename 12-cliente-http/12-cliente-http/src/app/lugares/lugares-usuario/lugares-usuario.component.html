@@ -8,7 +8,10 @@
   }
 
   @if (lugares()) {
-    <app-lugares [lugares]="lugares()!" />
+    <app-lugares
+      [lugares]="lugares()!"
+      (seleccionarLugar)="alEliminarLugar($event)"
+    />
   } @else if (lugares()?.length === 0) {
     <p class="texto-respaldo">Desafortunadamente no se encontraron lugares.</p>
   }

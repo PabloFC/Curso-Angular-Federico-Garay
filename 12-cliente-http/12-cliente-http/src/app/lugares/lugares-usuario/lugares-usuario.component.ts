@@ -34,4 +34,14 @@ export class LugaresUsuarioComponent implements OnInit {
       subscripcion.unsubscribe();
     });
   }
+
+  alEliminarLugar(lugar: Lugar) {
+    const subscripcion = this.servicioLugares
+      .eliminarLugarUsuario(lugar)
+      .subscribe();
+
+    this.destroyRef.onDestroy(() => {
+      subscripcion.unsubscribe();
+    });
+  }
 }
